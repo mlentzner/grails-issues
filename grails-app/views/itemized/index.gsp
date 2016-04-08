@@ -2,13 +2,20 @@
 <head>
 
 </head>
-<body>
     <g:link action="create">Create</g:link><br/>
     <br/>
     Total Objects: ${itemizeds.size()}<br/>
     <br/>
-    <g:each var="itemized" in="${itemizeds}">
-        Name: ${itemized?.name}<br/>
-    </g:each>
+    <table>
+        <g:each var="itemized" in="${itemizeds}">
+            <tr>
+                <td>Name: ${itemized?.name}</td>
+                <td><g:link action="create" controller="lineItem">Create Person Item</g:link></td>
+                <td><g:link action="create" controller="lineItem">Create Equipment Item</g:link></td>
+                <td><g:link action="edit" id="${itemized.id}">Edit</g:link></td>
+                <td><g:link action="delete" id="${itemized.id}">Delete</g:link></td>
+            </tr>
+        </g:each>
+    </table>
 </body>
 </html>
