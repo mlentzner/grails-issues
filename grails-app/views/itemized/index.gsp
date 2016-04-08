@@ -1,6 +1,10 @@
 <html>
 <head>
-
+    <style>
+        td {
+            padding-left: 10px;
+        }
+    </style>
 </head>
     <g:link action="create">Create</g:link><br/>
     <br/>
