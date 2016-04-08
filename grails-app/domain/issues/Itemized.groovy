@@ -17,4 +17,21 @@ class Itemized {
 
     static constraints = {
     }
+
+    LineItem getLineItem(id) {
+        for (lineItem in lineItems) {
+            if (lineItem.id == id) {
+                return lineItem
+            }
+        }
+        return null
+    }
+
+    def addLineItem(LineItem lineItem) {
+        lineItems.add(lineItem)
+    }
+
+    def removeLineItem(LineItem lineItem) {
+        lineItems.remove(lineItem)
+    }
 }

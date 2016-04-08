@@ -6,6 +6,9 @@ class LineItem {
 
     ObjectId id //Mongo Compatible ID Generation
 
+    Date dateCreated
+    Date lastUpdated
+
     static constraints = {
     }
 }
