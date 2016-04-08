@@ -6,7 +6,7 @@
         }
     </style>
 </head>
-    <g:link action="create">Create</g:link><br/>
+    <g:link action="create">Create Itemized</g:link><br/>
     <br/>
     Total Objects: ${itemizeds.size()}<br/>
     <br/>
