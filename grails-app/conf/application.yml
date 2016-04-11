@@ -16,7 +16,7 @@
 grails:
     mongodb:
          port: 27017
-         engine: 'mapping'
+         engine: 'mapping' #David Klein - you can try the demo db with mapping on to see that it works, switch to codec and see that it breaks
 
 environments:
     development:
