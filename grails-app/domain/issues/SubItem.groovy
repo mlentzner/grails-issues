@@ -6,6 +6,11 @@ class SubItem {
 
     ObjectId id //Mongo Compatible ID Generation
 
+    String name
+
+    Date dateCreated
+    Date lastUpdated
+
     static constraints = {
     }
 }
