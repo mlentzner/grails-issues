@@ -18,9 +18,9 @@ class Itemized {
     static constraints = {
     }
 
-    LineItem getLineItem(id) {
+    LineItem getLineItem(String id) {
         for (lineItem in lineItems) {
-            if (lineItem.id == id) {
+            if (lineItem.id.toString() == id) {
                 return lineItem
             }
         }

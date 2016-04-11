@@ -29,7 +29,7 @@
                         <td><g:link action="edit" controller="equipmentItem" id="${itemized.id}" params="[equipmentItemId: lineItem.id]">Edit</g:link></td>
                         <td><g:link action="delete" controller="equipmentItem" id="${itemized.id}" params="[equipmentItemId: lineItem.id]">Delete</g:link></td>
                     </g:if>
-                    <g:elseif test="${lineItem instanceof issues.JobItem}">%{--<g:elseif test="${lineItem.teamSize}">--}% %{--Mongo Plugin #688 - Can't use commented code anymore - used to be valid--}%
+                    <g:elseif test="${lineItem instanceof JobItem}">%{--<g:elseif test="${lineItem.teamSize}">--}% %{--Mongo Plugin #688 - Can't use commented code anymore - used to be valid--}%
                         <td>Team Size: ${lineItem.teamSize}</td>
                         <td>Create Sub-Item</td>
                         <td><g:link action="edit" controller="jobItem" id="${itemized.id}" params="[jobItemId: lineItem.id]">Edit</g:link></td>

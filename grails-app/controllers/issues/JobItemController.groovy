@@ -1,5 +1,7 @@
 package issues
 
+import org.bson.types.ObjectId
+
 class JobItemController {
 
     def index() { }
@@ -8,6 +10,8 @@ class JobItemController {
 
     def create() {
         Itemized itemized = Itemized.get(params.id)
+        if (!itemized) { throw new IllegalStateException('Itemized DO could not be found') }
+
         JobItem jobItem = new JobItem()
         [itemized: itemized, jobItem: jobItem]
     }
@@ -16,6 +20,7 @@ class JobItemController {
         Itemized itemized = Itemized.get(params.id)
         JobItem jobItem = new JobItem()
         jobItem.properties = params
+        jobItem.id = new ObjectId()
         itemized.addLineItem(jobItem)
         if (itemized.save(flush: true)) {
 
@@ -26,8 +31,14 @@ class JobItemController {
     }
 
     def edit() {
+        log.info "Params: ${params}"
+
         Itemized itemized = Itemized.get(params.id)
+        if (!itemized) { throw new IllegalStateException('Itemized DO could not be found') }
+
         JobItem jobItem = itemized.getLineItem(params.jobItemId)
+        if (!jobItem) { throw new IllegalStateException('JobItem DO could not be found') }
+
         [itemized: itemized, jobItem: jobItem]
     }
 

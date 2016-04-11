@@ -1,5 +1,7 @@
 package issues
 
+import org.bson.types.ObjectId
+
 class EquipmentItemController {
 
     def index() { }
@@ -16,6 +18,7 @@ class EquipmentItemController {
         Itemized itemized = Itemized.get(params.id)
         EquipmentItem equipmentItem = new EquipmentItem()
         equipmentItem.properties = params
+        equipmentItem.id = new ObjectId()
         itemized.addLineItem(equipmentItem)
         if (itemized.save(flush: true)) {
 
@@ -26,6 +29,7 @@ class EquipmentItemController {
     }
 
     def edit() {
+        println "Params: ${params}"
         Itemized itemized = Itemized.get(params.id)
         EquipmentItem equipmentItem = itemized.getLineItem(params.equipmentItemId)
         [itemized: itemized, equipmentItem: equipmentItem]
