@@ -28,6 +28,7 @@ class Itemized {
     }
 
     def addLineItem(LineItem lineItem) {
+        if (!lineItems) { lineItems = [] }
         lineItems.add(lineItem)
     }
 

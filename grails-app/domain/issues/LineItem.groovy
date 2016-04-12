@@ -26,6 +26,7 @@ class LineItem {
     }
 
     def addSubItem(SubItem subItem) {
+        if (!subItems) { subItems = [] }
         subItems.add(subItem)
     }
 
