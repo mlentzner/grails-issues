@@ -1,0 +1,5 @@
+model {
+    LineItem lineItem
+}
+
+json tmpl.lineItem(lineItem)

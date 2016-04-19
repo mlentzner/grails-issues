@@ -1,0 +1,5 @@
+model {
+    Iterable<LineItem> lineItems
+}
+
+json tmpl.lineItem(lineItems ?: [])

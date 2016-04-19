@@ -19,6 +19,9 @@ class EquipmentItemController {
         EquipmentItem equipmentItem = new EquipmentItem()
         equipmentItem.properties = params
         equipmentItem.id = new ObjectId()
+        jobItem.dateCreated = new Date()
+        jobItem.lastUpdated = new Date()
+
         itemized.addLineItem(equipmentItem)
         if (itemized.save(flush: true)) {
 
@@ -39,6 +42,8 @@ class EquipmentItemController {
         Itemized itemized = Itemized.get(params.id)
         EquipmentItem equipmentItem = itemized.getLineItem(params.equipmentItemId)
         equipmentItem.properties = params
+        jobItem.lastUpdated = new Date()
+
         if (itemized.save(flush: true)) {
 
         } else {

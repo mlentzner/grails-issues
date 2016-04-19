@@ -21,6 +21,9 @@ class JobItemController {
         JobItem jobItem = new JobItem()
         jobItem.properties = params
         jobItem.id = new ObjectId()
+        jobItem.dateCreated = new Date()
+        jobItem.lastUpdated = new Date()
+
         itemized.addLineItem(jobItem)
         if (itemized.save(flush: true)) {
 
@@ -46,6 +49,8 @@ class JobItemController {
         Itemized itemized = Itemized.get(params.id)
         JobItem jobItem = itemized.getLineItem(params.jobItemId)
         jobItem.properties = params
+        jobItem.lastUpdated = new Date()
+
         if (itemized.save(flush: true)) {
 
         } else {
