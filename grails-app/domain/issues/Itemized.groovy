@@ -26,13 +26,4 @@ class Itemized {
         }
         return null
     }
-
-    def addLineItem(LineItem lineItem) {
-        if (!lineItems) { lineItems = [] }
-        lineItems.add(lineItem)
-    }
-
-    def removeLineItem(LineItem lineItem) {
-        lineItems.remove(lineItem)
-    }
 }

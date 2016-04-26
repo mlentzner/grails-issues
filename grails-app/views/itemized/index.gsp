@@ -28,12 +28,12 @@
             </tr>
             <g:each var="lineItem" in="${itemized.lineItems}">
                 <tr>
-                    <g:if test="${lineItem instanceof EquipmentItem}">%{--<g:if test="${lineItem.manufacturer}">--}% %{--Mongo Plugin #688 - Can't use commented code anymore - used to be valid--}%
+                    <g:if test="${lineItem instanceof EquipmentItem}">
                         <td class="indent1">Manufacturer: ${lineItem.manufacturer}</td>
                         <td><g:link action="edit" controller="equipmentItem" id="${itemized.id}" params="[equipmentItemId: lineItem.id]">Edit</g:link></td>
                         <td><g:link action="delete" controller="equipmentItem" id="${itemized.id}" params="[equipmentItemId: lineItem.id]">Delete</g:link></td>
                     </g:if>
-                    <g:elseif test="${lineItem instanceof JobItem}">%{--<g:elseif test="${lineItem.teamSize}">--}% %{--Mongo Plugin #688 - Can't use commented code anymore - used to be valid--}%
+                    <g:elseif test="${lineItem instanceof JobItem}">
                         <td class="indent1">Team Size: ${lineItem.teamSize}</td>
                         <td><g:link action="edit" controller="jobItem" id="${itemized.id}" params="[jobItemId: lineItem.id]">Edit</g:link></td>
                         <td><g:link action="delete" controller="jobItem" id="${itemized.id}" params="[jobItemId: lineItem.id]">Delete</g:link></td>

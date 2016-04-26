@@ -3,15 +3,16 @@ model {
 }
 
 json {
-    //id lineItem.id //Grails View issue #29 - default <domain object>.id should simply create string version of id
-    id lineItem.id.toString() //workaround for #29
+    id lineItem.id.toString()
     dateCreated lineItem.dateCreated
     lastUpdated lineItem.lastUpdated
 
     if (lineItem instanceof JobItem) {
-        //teamSize lineItem.teamSize //GSON View issue #21 - this line will cause GSON compiler to crash even though it is legal code
+        def jobItem = (JobItem)lineItem
+        teamSize jobItem.teamSize
     }
     if (lineItem instanceof EquipmentItem) {
-        //manufacturer lineItem.manufacturer //GSON View issue #21 - this line will cause GSON compiler to crash even though it is legal code
+        def equipmentItem = (EquipmentItem)lineItem
+        manufacturer equipmentItem.manufacturer
     }
 }

@@ -19,10 +19,10 @@ class EquipmentItemController {
         EquipmentItem equipmentItem = new EquipmentItem()
         equipmentItem.properties = params
         equipmentItem.id = new ObjectId()
-        jobItem.dateCreated = new Date()
-        jobItem.lastUpdated = new Date()
+        equipmentItem.dateCreated = new Date()
+        equipmentItem.lastUpdated = new Date()
 
-        itemized.addLineItem(equipmentItem)
+        itemized.addToLineItems(equipmentItem) //changed from addLineItem
         if (itemized.save(flush: true)) {
 
         } else {
@@ -42,7 +42,7 @@ class EquipmentItemController {
         Itemized itemized = Itemized.get(params.id)
         EquipmentItem equipmentItem = itemized.getLineItem(params.equipmentItemId)
         equipmentItem.properties = params
-        jobItem.lastUpdated = new Date()
+        equipmentItem.lastUpdated = new Date()
 
         if (itemized.save(flush: true)) {
 
@@ -55,7 +55,7 @@ class EquipmentItemController {
     def delete() {
         Itemized itemized = Itemized.get(params.id)
         EquipmentItem equipmentItem = itemized.getLineItem(params.equipmentItemId)
-        itemized.removeLineItem(equipmentItem)
+        itemized.lineItems.remove(equipmentItem)
         if (itemized.save(flush: true)) {
 
         } else {

@@ -24,12 +24,4 @@ class LineItem {
         }
         return null
     }
-
-    def addSubItem(SubItem subItem) {
-        if (!subItems) { subItems = [] }
-        subItems.add(subItem)
-    }
-
-    def removeSubItem(SubItem subItem) {
-        subItems.remove(subItem)
-    }}
+}

@@ -20,7 +20,7 @@ class ItemizedController {
     def save()  {
         Itemized itemized = new Itemized()
         itemized.properties = params
-        if (itemized.save(flush: true)) { //MongoDB Plugin issue #690 - remove flush:true and object is never created
+        if (itemized.save()) {
             println "Itemized Saved: Name: ${itemized.name}"
         } else {
             println "Itemized (${itemized.name}) Not Saved"
@@ -36,7 +36,7 @@ class ItemizedController {
     def update() {
         Itemized itemized = Itemized.get(params.id)
         itemized.properties = params
-        if (itemized.save(flush: true)) { //MongoDB Plugin issue #690 - remove flush:true and object is never updated
+        if (itemized.save()) {
             println "Itemized Updated: Name: ${itemized.name}"
         } else {
             println "Itemized (Name: ${itemized.name}) Not Updated"
@@ -46,7 +46,7 @@ class ItemizedController {
 
     def delete() {
         Itemized itemized = Itemized.get(params.id)
-        itemized.delete(flush: true) //MongoDB Plugin issue #690 - remove flush:true and object is never deleted
+        itemized.delete()
         redirect(action: 'index')
     }
 }

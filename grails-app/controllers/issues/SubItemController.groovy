@@ -21,7 +21,7 @@ class SubItemController {
         SubItem subItem = new SubItem()
         subItem.properties = params
         subItem.id = new ObjectId()
-        lineItem.addSubItem(subItem)
+        lineItem.addToSubItems(subItem)
         if (itemized.save(flush: true)) {
 
         } else {
@@ -54,7 +54,7 @@ class SubItemController {
         Itemized itemized = Itemized.get(params.id)
         LineItem lineItem = itemized.getLineItem(params.lineItemId)
         SubItem subItem = lineItem.getSubItem(params.subItemId)
-        lineItem.removeSubItem(subItem)
+        lineItem.subitems.remove(subItem)
         itemized.save(flush: true)
         redirect(controller: 'Itemized', action: 'index')
     }

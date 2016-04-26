@@ -24,7 +24,7 @@ class JobItemController {
         jobItem.dateCreated = new Date()
         jobItem.lastUpdated = new Date()
 
-        itemized.addLineItem(jobItem)
+        itemized.addToLineItems(jobItem) //changed from addLineItem
         if (itemized.save(flush: true)) {
 
         } else {
@@ -62,7 +62,7 @@ class JobItemController {
     def delete() {
         Itemized itemized = Itemized.get(params.id)
         JobItem jobItem = itemized.getLineItem(params.jobItemId)
-        itemized.removeLineItem(jobItem)
+        itemized.lineItems.remove(jobItem)
         if (itemized.save(flush: true)) {
 
         } else {
